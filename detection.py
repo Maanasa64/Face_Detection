@@ -4,19 +4,15 @@ def detect_faces(image_path, output_path=None):
     face_cascade = cv2.CascadeClassifier(cv2.data.haarcascades + 'haarcascade_frontalface_default.xml')
     
     image = cv2.imread(image_path)
-    if image is None:
-        print("Error: Image not found!")
-        return
     
     gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
     gray = cv2.equalizeHist(gray)
 
-    # Adjusted parameters
     faces = face_cascade.detectMultiScale(
         gray,
-        scaleFactor=1.05,  # More thorough scaling
-        minNeighbors=4,    # Fewer neighbors to reduce false negatives
-        minSize=(20, 20),  # Smaller faces allowed
+        scaleFactor=1.05,
+        minNeighbors=4,
+        minSize=(20, 20),
         flags=cv2.CASCADE_SCALE_IMAGE
     )
 
