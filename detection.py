@@ -30,4 +30,4 @@ def detect_faces(image_path, output_path=None):
     cv2.destroyAllWindows()
 
 if __name__ == "__main__":
-    detect_faces('input_image2.jpg', 'output.jpg')
+    detect_faces('input_image.jpg', 'output.jpg')
